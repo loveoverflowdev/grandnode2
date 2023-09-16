@@ -33,6 +33,8 @@
 		<ProjectReference Include="..\Grand.Web.Common\Grand.Web.Common.csproj" />
 		<ProjectReference Include="..\Grand.Web.Admin\Grand.Web.Admin.csproj" />
 		<ProjectReference Include="..\..\API\Grand.Api\Grand.Api.csproj" />
+		<ProjectReference Include="..\Grand.Web.Models\Grand.Web.Models.csproj" />
+		<ProjectReference Include="..\Grand.Web.RazorViews\Grand.Web.RazorViews.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>

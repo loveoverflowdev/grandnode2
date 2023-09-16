@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Grand.Business.Core\Grand.Business.Core.csproj" />
+    <ProjectReference Include="..\..\Core\Grand.Domain\Grand.Domain.csproj" />
+    <ProjectReference Include="..\Grand.Web.Models\Grand.Web.Models.csproj" />
+  </ItemGroup>
+
+</Project>

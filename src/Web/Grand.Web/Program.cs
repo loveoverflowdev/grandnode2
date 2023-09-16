@@ -1,11 +1,14 @@
 ﻿using Grand.Infrastructure.Configuration;
+using Grand.SharedKernel.Extensions;
 using Grand.Web.Common.Startup;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using NetEscapades.AspNetCore.SecurityHeaders.Headers.FeaturePolicy;
 using Serilog;
 using StartupBase = Grand.Infrastructure.StartupBase;
 
@@ -43,6 +46,13 @@ Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configurat
 
 //add services
 StartupBase.ConfigureServices(builder.Services, builder.Configuration);
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation(options =>
+{
+    var libraryPath = Path.GetFullPath(
+                   Path.Combine(CommonPath.BaseDirectory, "..", "Grand.Web.RazorViews"));
+    options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
+});
 
 //Allow non ASCII chars in headers
 var config = new AppConfig();
